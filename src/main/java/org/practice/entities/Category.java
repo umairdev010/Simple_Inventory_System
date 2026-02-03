@@ -1,6 +1,7 @@
 package org.practice.entities;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.Type;
 
 @Entity
 @Table(name = "categories_inventory")
@@ -19,6 +20,13 @@ public class Category {
         this.name = name;
         this.description = description;
     }
+
+    public Category(String name, String description) {
+        this.name = name;
+        this.description = description;
+    }
+
+    public Category(){}
 
     @Override
     public String toString() {
