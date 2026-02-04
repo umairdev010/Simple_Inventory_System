@@ -34,11 +34,14 @@ public class App
                             SupplierOperations.createSupplier(name,phone);
                             break;
                         case 2:
-                            System.out.println("YOU ARE GOING TO GET A SUPPLIER BY ID : ");
+                            System.out.print("YOU ARE GOING TO GET A SUPPLIER BY ID : ");
                             int id = input.nextInt();
-
+                            SupplierOperations.getSupplier(id);
                             break;
                         case 3:
+                            System.out.print("YOU ARE GOING TO DELETE A SUPPLIER BY ID : ");
+                            id = input.nextInt();
+                            SupplierOperations.deleteSupplier(id);
                             break;
                         default:
                             System.out.println("PLEASE ENTER A VALID NUMBER AND TRY AGAIN");

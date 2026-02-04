@@ -8,12 +8,12 @@ public class SupplierOperations {
 
     public static Session session = DbConnection.getSession();
 
-    public static void createSupplier(String name, String phone){
+    public static void createSupplier(String name, String phone) {
 
         try {
 
             Transaction transaction = session.beginTransaction();
-            session.persist(new Supplier(name , phone));
+            session.persist(new Supplier(name, phone));
             transaction.commit();
             System.out.println("SUPPLIER CREATED SUCCESSFULLY");
 
@@ -25,12 +25,31 @@ public class SupplierOperations {
 
     }
 
-    public static void getSupplier(int id){
+    public static void getSupplier(int id) {
 
         try {
             Transaction transaction = session.beginTransaction();
-            Supplier supplier = session.find(Supplier.class , id);
+            Supplier supplier = session.find(Supplier.class, id);
             System.out.println(supplier);
+            transaction.commit();
+        } catch (Exception e) {
+            System.out.println("ERROR OCCURRED IN THE SUPPLIER GETTING : " + e);
+        } finally {
+            session.close();
+        }
+
+    }
+
+    public static void deleteSupplier(int id) {
+
+        try {
+            Transaction transaction = session.beginTransaction();
+            Supplier supplier = session.find(Supplier.class, id);
+            if (supplier != null){
+                session.remove(supplier);
+                System.out.println("supplier removed.");
+            }
+            transaction.commit();
         } catch (Exception e) {
             System.out.println("ERROR OCCURRED IN THE SUPPLIER GETTING : " + e);
         } finally {
