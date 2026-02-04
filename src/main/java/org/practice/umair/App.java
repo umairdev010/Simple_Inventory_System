@@ -1,5 +1,7 @@
 package org.practice.umair;
 
+import org.practice.entities.Supplier;
+
 import java.util.Scanner;
 
 public class App
@@ -17,7 +19,30 @@ public class App
             switch (choice){
                 case 1:
                     System.out.println("WELLCOME TO PRODUCTS MANAGEMENT SYSTEM");
+                    System.out.print("ENTER NUMBER WHICH OPERATION YOU WANT TO DO  1. CREATE PRODUCTS  2. GET PRODUCTS  3. DELETE PRODUCTS : ");
+                    choice = input.nextInt();
+                    switch (choice){
+                        case 1:
+                            System.out.println("YOU ARE GOING TO CREATE A PRODUCT SO ADD FOLLOWING INFORMATION");
+                            input.nextLine();
+                            System.out.print("ENTER THE NAME OF PRODUCT : ");
+                            String productName = input.nextLine();
+                            System.out.print("ENTER THE AVAILABLE STOCK : ");
+                            int stock = input.nextInt();
+                            System.out.print("ENTER ITS CATEGORY NAME : ");
+                            String categoryName = input.nextLine();
 
+                            System.out.print("ENTER THE NAME OF SUPPLIER : ");
+                            String supplierName = input.nextLine();
+                            Supplier supplier = SupplierOperations.retrunSupplier(supplierName);
+                            break;
+                        case 2:
+                            break;
+                        case 3:
+                            break;
+                        default:
+                            System.out.println("PLEASE ENTER A VALID NUMBER AND TRY AGAIN");
+                    }
                     break;
                 case 2:
                     System.out.println("WELLCOME TO SUPPLIER MANAGEMENT SYSTEM");

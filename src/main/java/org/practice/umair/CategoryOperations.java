@@ -2,7 +2,9 @@ package org.practice.umair;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 import org.practice.entities.Category;
+import org.practice.entities.Supplier;
 
 public class CategoryOperations {
 
@@ -66,5 +68,27 @@ public class CategoryOperations {
         }
 
     }
+
+    public static Category retrunCategory(String name) {
+
+        try {
+
+            Transaction transaction = session.beginTransaction();
+            String hql = "FROM Category WHERE name = :name";
+            Query query = session.createQuery(hql);
+            query.setParameter("name", name);
+            Category category = (Category) query.uniqueResult();
+            System.out.println(category);
+            return category;
+
+        } catch (Exception e) {
+            System.out.println("ERROR OCCURRED IN RETURNING CATEGORY : " + e);
+            return null;
+        } finally {
+            session.close();
+        }
+
+    }
+
 
 }
