@@ -304,7 +304,7 @@ This project is open source and available under the [MIT License](LICENSE).
 
 - Hibernate documentation and community
 - Jakarta Persistence API specification
-- MySQL database team
+- PostgreSQL database team
 - Everyone who has contributed to this project
 
 ---
