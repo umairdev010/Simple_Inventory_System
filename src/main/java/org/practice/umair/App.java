@@ -31,14 +31,18 @@ public class App
                             System.out.print("ENTER THE AVAILABLE STOCK : ");
                             int stock = input.nextInt();
                             System.out.print("ENTER ITS CATEGORY NAME : ");
+                            input.nextLine();
                             String categoryName = input.nextLine();
                             Category category = CategoryOperations.retrunCategory(categoryName);
                             System.out.print("ENTER THE NAME OF SUPPLIER : ");
                             String supplierName = input.nextLine();
                             Supplier supplier = SupplierOperations.retrunSupplier(supplierName);
-
+                            ProductsOperations.creatingProduct(productName,stock,supplier,category);
                             break;
                         case 2:
+                            System.out.print("YOU ARE GOING TO GET PRODUCT BY ID SO ENTER ID : ");
+                            int id = input.nextInt();
+                            ProductsOperations.gettingProduct(id);
                             break;
                         case 3:
                             break;
