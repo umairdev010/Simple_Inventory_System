@@ -25,4 +25,18 @@ public class SupplierOperations {
 
     }
 
+    public static void getSupplier(int id){
+
+        try {
+            Transaction transaction = session.beginTransaction();
+            Supplier supplier = session.find(Supplier.class , id);
+            System.out.println(supplier);
+        } catch (Exception e) {
+            System.out.println("ERROR OCCURRED IN THE SUPPLIER GETTING : " + e);
+        } finally {
+            session.close();
+        }
+
+    }
+
 }

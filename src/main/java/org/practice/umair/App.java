@@ -34,6 +34,9 @@ public class App
                             SupplierOperations.createSupplier(name,phone);
                             break;
                         case 2:
+                            System.out.println("YOU ARE GOING TO GET A SUPPLIER BY ID : ");
+                            int id = input.nextInt();
+
                             break;
                         case 3:
                             break;
