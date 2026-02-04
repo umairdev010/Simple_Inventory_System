@@ -1,5 +1,6 @@
 package org.practice.umair;
 
+import org.practice.entities.Category;
 import org.practice.entities.Supplier;
 
 import java.util.Scanner;
@@ -31,10 +32,11 @@ public class App
                             int stock = input.nextInt();
                             System.out.print("ENTER ITS CATEGORY NAME : ");
                             String categoryName = input.nextLine();
-
+                            Category category = CategoryOperations.retrunCategory(categoryName);
                             System.out.print("ENTER THE NAME OF SUPPLIER : ");
                             String supplierName = input.nextLine();
                             Supplier supplier = SupplierOperations.retrunSupplier(supplierName);
+
                             break;
                         case 2:
                             break;
