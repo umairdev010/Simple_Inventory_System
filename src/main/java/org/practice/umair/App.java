@@ -20,7 +20,7 @@ public class App
             switch (choice){
                 case 1:
                     System.out.println("WELLCOME TO PRODUCTS MANAGEMENT SYSTEM");
-                    System.out.print("ENTER NUMBER WHICH OPERATION YOU WANT TO DO  1. CREATE PRODUCTS  2. GET PRODUCTS  3. DELETE PRODUCTS : ");
+                    System.out.print("ENTER NUMBER WHICH OPERATION YOU WANT TO DO  1. CREATE PRODUCTS  2. GET PRODUCTS  3. DELETE PRODUCTS  4.  GET ALL PRODUCTS : ");
                     choice = input.nextInt();
                     switch (choice){
                         case 1:
@@ -45,6 +45,12 @@ public class App
                             ProductsOperations.gettingProduct(id);
                             break;
                         case 3:
+                            System.out.print("YOU ARE GOING TO DELETE PRODUCT BY ID SO ENTER ID : ");
+                            id = input.nextInt();
+                            ProductsOperations.deletingProduct(id);
+                            break;
+                        case 4:
+                            ProductsOperations.gettingAllProducts();
                             break;
                         default:
                             System.out.println("PLEASE ENTER A VALID NUMBER AND TRY AGAIN");
@@ -90,7 +96,6 @@ public class App
                             String name = input.nextLine();
                             System.out.print("ENTER THE SHORT DESCRIPTION OF CATEGORY : ");
                             String description = input.nextLine();
-                            System.out.println(name + " " +description);
                             CategoryOperations.creatingCategory(name,description);
                             break;
                         case 2:

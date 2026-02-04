@@ -2,9 +2,12 @@ package org.practice.umair;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 import org.practice.entities.Category;
 import org.practice.entities.Product;
 import org.practice.entities.Supplier;
+
+import java.util.List;
 
 public class ProductsOperations {
 
@@ -55,6 +58,26 @@ public class ProductsOperations {
             transaction.commit();
         } catch (Exception e) {
             System.out.println("ERROR OCCURRED WHILE REMOVING/DELETING PRODUCT : " + e);
+        } finally {
+            session.close();
+        }
+
+    }
+
+    public static void gettingAllProducts(){
+
+        try {
+
+            Transaction transaction = session.beginTransaction();
+            String hql = "FROM Product";
+            Query query = session.createQuery(hql);
+            List<Product> products = query.list();
+            for (Product product : products){
+                System.out.println(product);
+            }
+
+        } catch (Exception e) {
+            System.out.println("ERROR WHILE GETTING ALL PRODUCTS : " + e);
         } finally {
             session.close();
         }
