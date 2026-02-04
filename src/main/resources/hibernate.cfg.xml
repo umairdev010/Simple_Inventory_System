@@ -18,6 +18,8 @@
         <!-- classes mapping -->
 
         <mapping class="org.practice.entities.Category"/>
+        <mapping class="org.practice.entities.Supplier"/>
+        <mapping class="org.practice.entities.Product"/>
 
     </session-factory>
 </hibernate-configuration>

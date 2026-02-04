@@ -26,6 +26,10 @@ public class Category {
         this.description = description;
     }
 
+    public Category(int id) {
+        this.id = id;
+    }
+
     public Category(){}
 
     @Override
